@@ -1,0 +1,6 @@
+code.visualstudio.com
+hoisting
+code.org
+little bit intro of javascript and introduction of all class 
+with some intro and statistics of react native
+with homework to read a javascript page

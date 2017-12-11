@@ -1,0 +1,11 @@
+lecture 3
+prompt
+array
+window object
+let
+object is atached properties
+=== matches data type n vaue
+concatinate
+ternary operator
+while loop
+evenry input will be in string always
