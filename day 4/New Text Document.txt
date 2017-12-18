@@ -1,0 +1,17 @@
+for in=shorthand for for loop
+for(let i in arr){} only in arrays
+map function
+function(frst class func)
+javascript is sync
+streaming is in async
+
+
+
+take a input
+store in variable
+compare that nmbr with random nmbr
+trials are only 5
+
+
+
+functions to learn whole week
