@@ -1,0 +1,13 @@
+functions in js
+first class function
+invocation=execution
+return
+anonymous functions function without name
+function can be a variable
+let greeting = function()-->anonymous functions
+modular development
+function expression-->a function than can be expressed
+congatinate
+
+DOM
+<h1><h1/>
