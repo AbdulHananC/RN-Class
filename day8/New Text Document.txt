@@ -1,0 +1,17 @@
+dom manipulation
+data str
+data
+for(ata.lenght
+<li>+data</li>
+local storage
+3 tier architecture
+always in string
+{mini cafeteria
+local storage
+object
+json
+student array
+menu array}
+frst requirements &
+features, objects values, AI
+diy do it urself

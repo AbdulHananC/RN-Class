@@ -1,0 +1,11 @@
+#id {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.itempr ul{
+    display: block;
+}
+ul li {
+    display: inline;
+    margin-right: 8px;
+  }
