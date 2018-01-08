@@ -35,17 +35,25 @@ var employee = {
 }
 
 /////////////All Global Variables//////////////////////
-var samqty = 1;
-var order;
-var Tprice;
-var samcount = 0;
-var sancount = 0;
-var tcount = 0;
-var wcount = 0;
-var samprice = 0;
-var sanprice = 0;
-var tprice = 0;
-var wprice = 0;
+var count =
+    {
+        samcount: 0,
+        sancount: 0,
+        tcount: 0,
+        wcount: 0,
+        samprice: 0,
+        sanprice: 0,
+        tprice: 0,
+        wprice: 0,
+    }
+var valueOfCount = count;
+if (JSON.parse(localStorage.getItem('count1')) == null) {
+    localStorage.count = JSON.stringify(count);
+    count = JSON.parse(localStorage.getItem('count'));
+}
+else {
+    count = JSON.parse(localStorage.getItem('count1'));
+}
 
 ///////////////////////////////////////
 //functions for samosa item
@@ -63,26 +71,26 @@ function minus1(menu) {             //-
 }
 function add1(menu) {
 
-    samcount++;
+    count.samcount++;
     menu[0].quantity--;
     document.getElementById('samosaPrice').innerHTML = "<span> samosa Price</span>";
     document.getElementById('price').innerHTML = "<h2>Total Price :</h2>";
     menu[0].sale += 10;
-    samprice = 10;
-    samprice = samprice * samcount;
-    document.getElementById('samosaPrice').innerHTML = "<span> Samosa Price :" + samprice + "</span>";
+    count.samprice = 10;
+    count.samprice = count.samprice * count.samcount;
+    document.getElementById('samosaPrice').innerHTML = "<span> Samosa Price :" + count.samprice + "</span>";
     totalPrice(menu);
     tqty(menu);
 }
 function sub1(menu) {
-    samcount--;
+    count.samcount--;
     menu[0].quantity++;
     document.getElementById('samosaPrice').innerHTML = "<span> Samosa Price</span>";
     document.getElementById('price').innerHTML = "<h2>Total Price :</h2>";
     menu[0].sale -= 10;
-    samprice = 10;
-    samprice = samprice * samcount;
-    document.getElementById('samosaPrice').innerHTML = "<span> Samosa Price :" + samprice + "</span>";
+    count.samprice = 10;
+    count.samprice = count.samprice * count.samcount;
+    document.getElementById('samosaPrice').innerHTML = "<span> Samosa Price :" + count.samprice + "</span>";
     totalPrice(menu);
     tqty(menu);
 }
@@ -101,27 +109,27 @@ function minus2(menu) {
 }
 function add2(menu) {
 
-    sancount++;
+    count.sancount++;
     menu[1].quantity--;
     document.getElementById('sanPrice').innerHTML = "<span> Sandwich Price </span>";
     document.getElementById('price').innerHTML = "<h2>Total Price :</h2>";
     menu[1].sale += 40;
-    sanprice = 40;
-    sanprice = sanprice * sancount;
-    document.getElementById('sanPrice').innerHTML = "<span> Sandwich Price :" + sanprice + "</span>";
+    count.sanprice = 40;
+    count.sanprice = count.sanprice * count.sancount;
+    document.getElementById('sanPrice').innerHTML = "<span> Sandwich Price :" + count.sanprice + "</span>";
     totalPrice(menu);
     tqty(menu);
 }
 function sub2(menu) {
 
-    sancount--;
+    count.sancount--;
     menu[1].quantity++;
     document.getElementById('sanPrice').innerHTML = "<span> Sandwich Price </span>";
     document.getElementById('price').innerHTML = "<h2>Total Price :</h2>";
     menu[1].sale -= 40;
-    sanprice = 40;
-    sanprice = sanprice * sancount;
-    document.getElementById('sanPrice').innerHTML = "<span> Sanwich Price :" + sanprice + "</span>";
+    count.sanprice = 40;
+    count.sanprice = count.sanprice * count.sancount;
+    document.getElementById('sanPrice').innerHTML = "<span> Sanwich Price :" + count.sanprice + "</span>";
     totalPrice(menu);
     tqty(menu);
 }
@@ -140,27 +148,27 @@ function minus3(menu) {
 }
 function add3(menu) {
 
-    tcount++;
+    count.tcount++;
     menu[2].quantity--;
     document.getElementById('teaPrice').innerHTML = "<span> Tea Price </span>";
     document.getElementById('price').innerHTML = "<h2>Total Price :</h2>";
     menu[2].sale += 30
-    tprice = 30;
-    tprice = tprice * tcount;
-    document.getElementById('teaPrice').innerHTML = "<span> Tea Price :" + tprice + "</span>";
+    count.tprice = 30;
+    count.tprice = count.tprice * count.tcount;
+    document.getElementById('teaPrice').innerHTML = "<span> Tea Price :" + count.tprice + "</span>";
     totalPrice(menu);
     tqty(menu);
 }
 function sub3(menu) {
 
-    tcount--;
+    count.tcount--;
     menu[2].quantity++
     document.getElementById('teaPrice').innerHTML = "<span> Tea Price </span>";
     document.getElementById('price').innerHTML = "<h2>Total Price :</h2>";
     menu[2].sale -= 30
-    tprice = 30;
-    tprice = tprice * tcount;
-    document.getElementById('teaPrice').innerHTML = "<span> Tea Price :" + tprice + "</span>";
+    count.tprice = 30;
+    count.tprice = count.tprice * count.tcount;
+    document.getElementById('teaPrice').innerHTML = "<span> Tea Price :" + count.tprice + "</span>";
     totalPrice(menu);
     tqty(menu);
 }
@@ -179,27 +187,27 @@ function minus4(menu) {
 }
 function add4(menu) {
     //function for increment of item
-    wcount++;
+    count.wcount++;
     menu[3].quantity--
     document.getElementById('waterPrice').innerHTML = "<span> Water Price </span>";
     document.getElementById('price').innerHTML = "<h2>Total Price :</h2>";
     menu[3].sale += 20
-    wprice = 20;
-    wprice = wprice * wcount;
-    document.getElementById('waterPrice').innerHTML = "<span> Water Price :" + wprice + "</span>";
+    count.wprice = 20;
+    count.wprice = count.wprice * count.wcount;
+    document.getElementById('waterPrice').innerHTML = "<span> Water Price :" + count.wprice + "</span>";
     totalPrice(menu);
     tqty(menu);
 }
 function sub4(menu) {
     //function for decrement of item
-    wcount--;
+    count.wcount--;
     menu[3].quantity++
     document.getElementById('waterPrice').innerHTML = "<span> Water Price </span>";
     document.getElementById('price').innerHTML = "<h2>Total Price :<h2>";
     menu[3].sale -= 20
-    wprice = 20;
-    wprice = wprice * wcount;
-    document.getElementById('waterPrice').innerHTML = "<span> Water Price :" + wprice + "</span>";
+    count.wprice = 20;
+    count.wprice = count.wprice * count.wcount;
+    document.getElementById('waterPrice').innerHTML = "<span> Water Price :" + count.wprice + "</span>";
     totalPrice(menu);
     tqty(menu);
 }
@@ -212,7 +220,6 @@ if (JSON.parse(localStorage.getItem('prrice')) == null) {
 else {
     menu = JSON.parse(localStorage.getItem('prrice'));
 }
-
 /////////////////////////////////
 //total addition of price function
 ///////////////////////////////
@@ -220,8 +227,10 @@ else {
 function totalPrice(menu) {
     localStorage.setItem('prrice', JSON.stringify(menu));           //stores value in json object and then parse it
     menu = JSON.parse(localStorage.getItem('prrice'));
-    var addit = samprice + sanprice + tprice + wprice;
+    var addit = count.samprice + count.sanprice + count.tprice + count.wprice;
     document.getElementById('price').innerHTML = "<span><h2>Total Price :</h2> " + addit + "</span>"; //shows total price
+    localStorage.setItem('count1', JSON.stringify(count));                  //frstly it will convert object named by order into string than
+    count = JSON.parse(localStorage.getItem('count1'));
 
 }
 
@@ -233,10 +242,12 @@ function tqty(menu) {
     localStorage.setItem('prrice', JSON.stringify(menu));         // for quantity
     menu = JSON.parse(localStorage.getItem('prrice'));
     var additqty = menu[0].quantity + menu[1].quantity + menu[2].quantity + menu[3].quantity;  //to get total quantity of items
-    var buyingcount = samcount + sancount + tcount + wcount;
+    var buyingcount = count.samcount + count.sancount + count.tcount + count.wcount;
     document.getElementById('quantity').innerHTML = "<span> <h2>Item Quantity </h2></span> ";
     document.getElementById('quantity').innerHTML += "<span> " + buyingcount + " </span> ";
     items();                                                                                    //invoks item function to get quantity of items
+    localStorage.setItem('count1', JSON.stringify(count));                  //frstly it will convert object named by order into string than
+    count = JSON.parse(localStorage.getItem('count1'));
 }
 
 
@@ -249,9 +260,12 @@ function items() {
     ////////counting of items
     ///////////////////////////////////////
     document.getElementById('Item').innerHTML = "<span><h2> Items </h2></span> ";
-    document.getElementById('Item').innerHTML = "<li><span><h2> ITEMS :</h2> Samosa :" + samcount + "</li><li> Sandwich :" + sancount + "</li>Tea :" + tcount + "<li> Water :" + wcount + "</li></span> ";
+    document.getElementById('Item').innerHTML = "<li><span><h2> ITEMS :</h2> Samosa :" + count.samcount + "</li><li> Sandwich :" + count.sancount + "</li>Tea :" + count.tcount + "<li> Water :" + count.wcount + "</li></span> ";
+    localStorage.setItem('count1', JSON.stringify(count));                  //frstly it will convert object named by order into string than
+    count = JSON.parse(localStorage.getItem('count1'));
 }
 
+console.log(count);
 ///////////////////////////////////////////////////////
 ///////will add whole order with student name
 //////////////////////////////////////////////////////
@@ -301,16 +315,23 @@ function orderSlip(input) {
     for (var i = 0; i <= order.length; i++) {
         let arr = {                                                                 //stores total bill details n an array object which will transfer 
             name: input,                                                            //in another object which will store all orders one by one
-            samosa: samcount,
-            sandwich: sancount,
-            tea: tcount,
-            water: wcount,
-            totalPrice: samprice + sanprice + tprice + wprice,
+            samosa: count.samcount,
+            sandwich: count.sancount,
+            tea: count.tcount,
+            water: count.wcount,
+            totalPrice: count.samprice + count.sanprice + count.tprice + count.wprice,
         }
         order.push(arr);
         localStorage.setItem('order1', JSON.stringify(order));                  //frstly it will convert object named by order into string than
         order = JSON.parse(localStorage.getItem('order1'));                     //then it will store it in order1 json object and then it will get
         console.log(order);                                                     //back in basic object #ItIsReallyConfusingIknow
+        console.log(count);
+        if (JSON.parse(localStorage.getItem('count1')) !== null) {
+
+            localStorage.setItem('count1', JSON.stringify(valueOfCount));
+            valueOfCount = JSON.parse(localStorage.getItem('count1'));
+        }
+
         break;
     }
 }
